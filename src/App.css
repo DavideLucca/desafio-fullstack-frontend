@@ -12,6 +12,10 @@ body {
     margin: 10px;
 }
 
+ul {
+    list-style-type: none;
+}
+
 #postInput {
     width: 500px;
 }
@@ -37,10 +41,14 @@ body {
     height: 30px;
 }
 
-li {
+#postList {
     margin-left: 15px;
     border: 1px solid;
     border-radius: 5px;
+}
+
+#commentList {
+    margin-left: 15px;
 }
 
 #commentId {

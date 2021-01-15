@@ -62,7 +62,6 @@ export default function App() {
 
     return (
     <>
-        {/* <img width={100} src={reactLogo} /> */}
         <Header title="Desafio Fullstack"/>
         <hr />
 
@@ -76,10 +75,10 @@ export default function App() {
 
         <ul>
             {posts.map(post => (
-                <li key={post.id}>
+                <li id="postList" key={post.id}>
                     <b>{post.message}</b>
-
-                    <br/>
+                    
+                    <hr />
 
                     <Comments data={post.id}/>
 
