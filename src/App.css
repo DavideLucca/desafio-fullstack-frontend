@@ -12,8 +12,13 @@ body {
     margin: 10px;
 }
 
-ul {
+#postUl {
     list-style-type: none;
+}
+
+#commentsUl {
+    list-style-type: disc;
+    margin: 6px;
 }
 
 #postInput {

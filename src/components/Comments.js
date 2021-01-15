@@ -7,7 +7,7 @@ import api from '../services/api';
 import '../App.css';
 
 export default function Comments(props) {
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, reset } = useForm();
     const [comments, setComments] = useState([]);
 
     useEffect(() => {
@@ -44,6 +44,8 @@ export default function Comments(props) {
             comment: dados.comment
         });
 
+        reset({});
+
         console.log(response);
 
         const comment = response.data;
@@ -55,7 +57,7 @@ export default function Comments(props) {
         <>
             {/* <p id="commentId">ID: {props.data}</p> */}
             <p>Comentários:</p>
-            <ul>
+            <ul id="commentsUl">
                 {comments.map(com => (
                     <li id="commentList" key={com.id}>
                         {com.comment}

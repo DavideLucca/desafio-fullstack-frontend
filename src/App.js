@@ -11,7 +11,7 @@ import Header from './components/Header';
 import Comments from './components/Comments';
 
 export default function App() {
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, reset } = useForm();
     const { 
         register: registerComment, 
         handleSubmit: handleSubmitComment
@@ -35,6 +35,8 @@ export default function App() {
             // message: `Post ${Math.floor(Math.random() * 1001)} adicionado`
             message: dados.post
         });
+
+        reset({});
 
         console.log(response);
 
@@ -73,7 +75,7 @@ export default function App() {
 
         <br />
 
-        <ul>
+        <ul id="postUl">
             {posts.map(post => (
                 <li id="postList" key={post.id}>
                     <b>{post.message}</b>
