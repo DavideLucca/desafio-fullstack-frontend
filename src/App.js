@@ -12,10 +12,6 @@ import Comments from './components/Comments';
 
 export default function App() {
     const { register, handleSubmit, reset } = useForm();
-    const { 
-        register: registerComment, 
-        handleSubmit: handleSubmitComment
-    } = useForm();
 
     const [posts, setPosts] = useState([]);
     const [showComments, setShowComments] = useState([]);
@@ -23,22 +19,16 @@ export default function App() {
     useEffect(() => {
         api.get('posts').then(response => {
             setPosts(response.data);
-            console.log(response);
         });
     }, []);
 
     async function handleAddPost(dados) {
-        console.log('dados recebidos: ', dados);
-        console.log('dados organizados: ', dados.post);
 
         const response = await api.post('posts', {
-            // message: `Post ${Math.floor(Math.random() * 1001)} adicionado`
             message: dados.post
         });
 
         reset({});
-
-        console.log(response);
 
         const post = response.data;
 
@@ -46,20 +36,8 @@ export default function App() {
     }
 
     const onSubmit = (data) => {
-        console.log(data);
-        // console.log({
-        //     message: data.post
-        // })
+
         handleAddPost(data);
-    }
-
-    const onSubmitComment = (data) => {
-        console.log(data);
-    }
-
-    function openComments() {
-        console.log(showComments);
-        showComments ? setShowComments(false) : setShowComments(true);
     }
 
     return (
@@ -83,19 +61,10 @@ export default function App() {
                     <hr />
 
                     <Comments data={post.id}/>
-
-                    {/* <form key={2} onSubmit={handleSubmitComment(onSubmitComment)}>
-                        <input type="text" id="comment" name="comment" placeholder="Adicionar comentário" ref={registerComment}/>
-                        <input type="submit" value="Adicionar comentário"/>
-                    </form> */}
-                    {/* <button onClick={openComments}>Comentários</button> */}
-                    {/* { showComments ? <Comments data={post.id}/> : null } */}
                     
                 </li>
             ))}
         </ul>
-
-        {/* <button onClick={handleAddPost}>Adicionar</button> */}
     </>
     );
 }

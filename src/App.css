@@ -59,3 +59,19 @@ body {
 #commentId {
     margin-left: 20px;
 }
+
+header {
+    display: flex;
+}
+
+#title-h1 {
+    font-size: 50px;
+}
+
+/* .image-div {
+
+}
+
+.title-div {
+    
+} */
